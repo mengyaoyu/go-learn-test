@@ -1,0 +1,7 @@
+set GOPATH
+$PROJECT_HOME
+$PROJECT_HOME/vendor
+
+
+
+

@@ -1,0 +1,13 @@
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+#idea
+.idea/
+/pkg
+/main.exe
+vendor/pkg
+*.iml
+out
+*.tmp
