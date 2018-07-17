@@ -9,6 +9,14 @@ func init() {
 
 	beego.GlobalControllerRouter["controllers:LoginController"] = append(beego.GlobalControllerRouter["controllers:LoginController"],
 		beego.ControllerComments{
+			Method: "Rest",
+			Router: `/i`,
+			AllowHTTPMethods: []string{"get"},
+			MethodParams: param.Make(),
+			Params: nil})
+
+	beego.GlobalControllerRouter["controllers:LoginController"] = append(beego.GlobalControllerRouter["controllers:LoginController"],
+		beego.ControllerComments{
 			Method: "Login",
 			Router: `/login`,
 			AllowHTTPMethods: []string{"get"},

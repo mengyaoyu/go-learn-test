@@ -15,7 +15,13 @@ type LoginController  struct {
 func (c *LoginController) Login() {
 	c.TplName = "signin.html"
 }
-
+// @router /i [get]
+func (c *LoginController)Rest()  {
+	//c.Data["json"] = "www"
+	c.Data["json"] = map[string]interface{}{"ok":"ttt","test":"ok"}
+	c.ServeJSON()
+	c.StopRun()
+}
 // @router /user/add/user [get]
 func (c *LoginController) AddUser() {
 

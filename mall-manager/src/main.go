@@ -20,18 +20,21 @@ func main() {
 	beego.Run();
 }
 func init() {
+	//1、驱动类型
 	orm.RegisterDriver("mysql", orm.DRMySQL)
-
+	//2、数据库配置
 	dbHost := beego.AppConfig.String("db.host")
 	dbPort := beego.AppConfig.String("db.port")
 	dbDataBase := beego.AppConfig.String("db.database")
 	dbUserName := beego.AppConfig.String("db.username")
 	dbPwd := beego.AppConfig.String("db.pwd")
-
+	//3、数据库连接
 	conn :=  dbUserName + ":" + dbPwd + "@tcp(" + dbHost + ":" + dbPort + ")/" + dbDataBase + "?charset=utf8"
-
+	//4、注册默认数据库 30连接数
 	orm.RegisterDataBase("default", "mysql", conn, 30, 30)//注册默认数据库
+	//5、注册实体
 	orm.RegisterModel(new(models.UserInfo))
+	//6、自动同步表结构
 	orm.RunSyncdb("default", false, true)
 	fmt.Println("database init is complete . \n Please restart the application")
 }
